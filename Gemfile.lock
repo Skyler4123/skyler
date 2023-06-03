@@ -86,6 +86,12 @@ GEM
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     erubi (1.12.0)
+    eventmachine (1.2.7)
+    faker (3.2.0)
+      i18n (>= 1.8.11, < 2)
+    faye-websocket (0.11.2)
+      eventmachine (>= 0.12.0)
+      websocket-driver (>= 0.5.1)
     globalid (1.1.0)
       activesupport (>= 5.0)
     graphwerk (1.2.1)
@@ -202,6 +208,10 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    view_component (3.0.0)
+      activesupport (>= 5.2.0, < 8.0)
+      concurrent-ruby (~> 1.0)
+      method_source (~> 1.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -218,6 +228,9 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   debug
+  eventmachine
+  faker
+  faye-websocket
   graphwerk
   importmap-rails
   jbuilder
@@ -230,6 +243,7 @@ DEPENDENCIES
   tailwindcss-rails
   turbo-rails
   tzinfo-data
+  view_component
   web-console
 
 RUBY VERSION

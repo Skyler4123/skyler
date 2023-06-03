@@ -8,7 +8,8 @@ module.exports = {
     './app/views/**/*.{erb,haml,html,slim}',
     './app/packages/*/helpers/**/*.rb',
     './app/packages/*/javascript/**/*.js',
-    './app/packages/*/views/**/*.{erb,haml,html,slim}'
+    './app/packages/*/views/**/*.{erb,haml,html,slim}',
+    './app/packages/*/components/**/*.{erb,html}'
   ],
   theme: {
     extend: {

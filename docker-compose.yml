@@ -1,57 +1,58 @@
 version: "3.8"
 services:
-  web:
-    container_name: rails
-    build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
-    volumes:
-      - .:/skyler
-    ports:
-      - "3000:3000"
-    depends_on:
-      - postgres
-      - mongodb
-      - redis
+  # web:
+  #   container_name: rails
+  #   build: .
+  #   command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+  #   volumes:
+  #     - .:/skyler
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - postgres
+  #     - mongodb
+  #     - redis
   postgres:
     container_name: postgres
     image: postgres
+    user: postgres
     restart: always
     environment:
       POSTGRES_DB: skyler_development
-      POSTGRES_USER: skyler
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
     ports:
       - "5432:5432"
-    volumes:
-      - db:/var/lib/postgresql/data
-  timescaledb:
-    container_name: timescaledb
-    image: timescale/timescaledb:latest-pg15
-    restart: always
-    environment:
-      POSTGRES_DB: skyler_development
-      POSTGRES_USER: skyler
-      POSTGRES_PASSWORD: password
-    ports:
-      - "5433:5433"
-    volumes:
-      - db:/var/lib/timescaledb/data
-  elasticsearch:
-    container_name: elasticsearch
-    image: elasticsearch:8.7.1
-    restart: always
-    ports:
-      - "9200:9200"
-    volumes:
-      - db:/var/lib/elasticsearch/data
-  mongodb:
-    container_name: mongodb
-    image: mongo
-    restart: always
-    ports:
-      - 27017:27017
-    volumes:
-      - db:/var/lib/mongodb/data
+    # volumes:
+    #   - db:/var/lib/postgresql/data
+    # timescaledb:
+    #   container_name: timescaledb
+    #   image: timescale/timescaledb:latest-pg15
+    #   restart: always
+    #   environment:
+    #     POSTGRES_DB: skyler_development
+    #     POSTGRES_USER: skyler
+    #     POSTGRES_PASSWORD: password
+    #   ports:
+    #     - "5433:5433"
+    #   volumes:
+    #     - db:/var/lib/timescaledb/data
+    # elasticsearch:
+    #   container_name: elasticsearch
+    #   image: elasticsearch:8.7.1
+    #   restart: always
+    #   ports:
+    #     - "9200:9200"
+    #   volumes:
+    #     - db:/var/lib/elasticsearch/data
+    # mongodb:
+    #   container_name: mongodb
+    #   image: mongo
+    #   restart: always
+    #   ports:
+    #     - 27017:27017
+    #   volumes:
+    #     - db:/var/lib/mongodb/data
   redis:
     container_name: redis
     image: redis
@@ -60,19 +61,19 @@ services:
       - 6379:6379
     volumes:
       - cache:/data
-  zookeeper:
-    image: wurstmeister/zookeeper
-    container_name: zookeeper
-    ports:
-      - "2181:2181"
-  kafka:
-    image: wurstmeister/kafka
-    container_name: kafka
-    ports:
-      - "9092:9092"
-    environment:
-      KAFKA_ADVERTISED_HOST_NAME: localhost
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+  # zookeeper:
+  #   image: wurstmeister/zookeeper
+  #   container_name: zookeeper
+  #   ports:
+  #     - "2181:2181"
+  # kafka:
+  #   image: wurstmeister/kafka
+  #   container_name: kafka
+  #   ports:
+  #     - "9092:9092"
+  #   environment:
+  #     KAFKA_ADVERTISED_HOST_NAME: localhost
+  #     KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
 volumes:
   cache:
     driver: local
