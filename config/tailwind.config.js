@@ -9,7 +9,7 @@ module.exports = {
     './app/packages/*/helpers/**/*.rb',
     './app/packages/*/javascript/**/*.js',
     './app/packages/*/views/**/*.{erb,haml,html,slim}',
-    './app/packages/*/components/**/*.{erb,html}'
+    './app/components/**/*.{erb,html}'
   ],
   theme: {
     extend: {

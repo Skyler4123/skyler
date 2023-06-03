@@ -34,5 +34,11 @@ module Skyler
     # Don't generate system test files.
     config.generators.system_tests = nil
     config.paths.add 'app/packages', glob: '*/{*,*/concerns}', eager_load: true
+
+
+    # config.eager_load_paths << Rails.root.join('app/components')
+    config.importmap.cache_sweepers << Rails.root.join('app')
+    config.assets.paths << Rails.root.join('app')
+    config.view_component.view_component_path = 'app/components'
   end
 end
