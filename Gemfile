@@ -73,3 +73,5 @@ gem 'view_component'
 
 gem 'eventmachine'
 gem 'faye-websocket'
+
+gem 'selenium-webdriver'
