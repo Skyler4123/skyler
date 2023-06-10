@@ -1,14 +1,6 @@
-<p style="color: green"><%= notice %></p>
 
-<h1 class="text-gray-400 font-extrabold bg-violet-600">Users</h1>
-
-<div id="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
-  <% end %>
+<div class='p-4 w-full'>
+  <%= render(Table::TableComponent.new(collection: @users, edit: true, headers: {email: 'Email', phone: 'Phone', role: 'Position', birthday: 'Birthday', age: 'Age', name: 'HAHA'}))%>
 </div>
 
-<%= link_to "New user", new_user_path %>
+

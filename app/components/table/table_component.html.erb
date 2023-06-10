@@ -1,0 +1,11 @@
+<div class="relative">
+  <table
+    class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
+    data-controller="table--table-component"
+    data-table--table-component-target='table'
+    data-table--table-component-edit-value="<%= @edit %>"
+  >
+    <%= render(Table::Head::HeadComponent.new(headers: @headers, edit: @edit)) %>
+    <%= render(Table::Body::BodyComponent.new(collection: @collection, headers: @headers, edit: @edit)) %>
+  </table>
+</div>

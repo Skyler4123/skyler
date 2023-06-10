@@ -28,9 +28,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_23_075845) do
     t.string "password_digest"
     t.string "uid"
     t.string "provider"
+    t.datetime "birthday"
+    t.string "phone"
+    t.decimal "balance"
+    t.string "nationality"
+    t.integer "role"
+    t.string "confirm_code"
+    t.datetime "last_active_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email"
+    t.index ["uid"], name: "index_users_on_uid"
   end
 
   add_foreign_key "posts", "users"

@@ -8,6 +8,17 @@
 
 100.times do
   User.create!(
-    email: Faker::Internet.email
+    email: Faker::Internet.email,
+    password: 'password',
+    password_confirmation: 'password',
+    uid: Faker::Code.imei,
+    provider: ['google', 'facebook', 'microsolf'].sample,
+    birthday: Faker::Date.between(from: '2014-09-23', to: '2023-09-25'),
+    phone: Faker::PhoneNumber.phone_number,
+    balance: Faker::Number.decimal(l_digits: 2),
+    nationality: Faker::Nation.nationality ,
+    role: rand(0..3),
+    confirm_code: Faker::Stripe.valid_card,
+    last_active_at: Faker::Time.between(from: DateTime.now - 10000, to: DateTime.now),
   )
 end

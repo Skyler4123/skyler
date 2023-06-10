@@ -1,0 +1,30 @@
+<tbody
+  class=''
+  data-table--table-component-target='body'
+>
+  <% @collection.each do |object| %>
+    <tr
+      class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+      data-table--table-component-target='row'
+      data-id="<%= object.id %>"
+    >
+      <% @headers.each do |attribute, name| %>
+        <td
+          class=""
+          data-table--table-component-target='cell'
+          data-type='<%= attribute.to_s %>' 
+        >
+          <div><%= object.send('try', attribute) %></div>
+        </td>
+      <% end %>
+      <% if @edit %>
+        <td
+          scope="col" class=""
+          data-table--table-component-target='edit'  
+        >
+          <div></div>
+        </td>
+		  <% end %>
+    </tr>
+  <% end %>
+</tbody>
