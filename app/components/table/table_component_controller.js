@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
-
+import dayjs from 'dayjs'
 export default class extends Controller {
   static targets = ['table', 'header', 'body', 'row', 'edit']
   static values = {
@@ -10,13 +10,28 @@ export default class extends Controller {
     this.editTargets.forEach((edit) => {
       edit.replaceChild(this.editSvg1(), edit.firstElementChild)
     })
+    // this.rowTargets.forEach((row) => {
+    //   console.log(row.querySelector('td[data-type="birthday"]').firstElementChild.innerHTML)
+    //   const birthdayElement = row.querySelector('td[data-type="birthday"]').firstElementChild
+    //   birthdayElement.innerHTML = dayjs(birthdayElement.innerHTML)
+    // })
   }
 
-  connect() {
-    const x = this.editTargets[0]
-    console.log(x);
+  // connect() {
+  //   const x = dayjs('2022-02-15 00:00:00 +0100')
+  //   console.log(x);
 
-  }
+  // }
+
+
+
+
+
+
+
+
+
+
 
 
 

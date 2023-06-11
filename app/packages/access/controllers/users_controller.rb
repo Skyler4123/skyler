@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.all.first(100)
+    @users = User.all.first(2)
   end
 
   # GET /users/1 or /users/1.json
