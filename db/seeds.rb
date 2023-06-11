@@ -13,6 +13,7 @@
     password_confirmation: 'password',
     uid: Faker::Code.imei,
     provider: ['google', 'facebook', 'microsolf'].sample,
+    name: Faker::Name.name,
     birthday: Faker::Date.between(from: '2014-09-23', to: '2023-09-25'),
     phone: Faker::PhoneNumber.phone_number,
     balance: Faker::Number.decimal(l_digits: 2),

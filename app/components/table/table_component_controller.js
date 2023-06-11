@@ -7,24 +7,42 @@ export default class extends Controller {
   }
 
   initialize() {
+    this.normalizeBirthday()
+    this.normalizeTable()
+  }
+
+  connect() {
+    dayjs.extend(objectSupport)
+    const x = dayjs({ year: 2010, month: 3, day: 5, hour: 15, minute: 10, second: 3, millisecond: 123 });
+    console.log(x);
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  normalizeBirthday() {
+    const birthdays = document.querySelectorAll('td[data-type="birthday"]').forEach((birthday) => {
+      const afterFormated = dayjs(birthday.innerText.replace(' UTC', '+0000')).format('DD/MM/YYYY')
+      // console.log(afterFormated)
+      birthday.firstElementChild.innerHTML = afterFormated
+    })
+  }
+
+  normalizeTable() {
     this.editTargets.forEach((edit) => {
       edit.replaceChild(this.editSvg1(), edit.firstElementChild)
     })
-    // this.rowTargets.forEach((row) => {
-    //   console.log(row.querySelector('td[data-type="birthday"]').firstElementChild.innerHTML)
-    //   const birthdayElement = row.querySelector('td[data-type="birthday"]').firstElementChild
-    //   birthdayElement.innerHTML = dayjs(birthdayElement.innerHTML)
-    // })
   }
-
-  // connect() {
-  //   const x = dayjs('2022-02-15 00:00:00 +0100')
-  //   console.log(x);
-
-  // }
-
-
-
 
 
 
