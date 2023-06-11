@@ -4,4 +4,4 @@ import "controllers"
 
 
 import dayjs from 'dayjs'
-dayjs().format()
+import ObjectSupport from 'dayjs/plugin/objectSupport'

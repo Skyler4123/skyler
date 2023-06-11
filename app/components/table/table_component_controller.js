@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
-import dayjs from 'dayjs'
+import dayjs from 'dayjs';
+import ObjectSupport from 'dayjs/plugin/objectSupport';
 export default class extends Controller {
   static targets = ['table', 'header', 'body', 'row', 'edit']
   static values = {
@@ -12,8 +13,8 @@ export default class extends Controller {
   }
 
   connect() {
-    dayjs.extend(objectSupport)
-    const x = dayjs({ year: 2010, month: 3, day: 5, hour: 15, minute: 10, second: 3, millisecond: 123 });
+    dayjs.extend(ObjectSupport)
+    const x = dayjs({ year: 1900, hour: 15, minute: 10 });
     console.log(x);
 
   }

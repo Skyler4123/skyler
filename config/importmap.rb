@@ -10,3 +10,4 @@ pin_all_from 'app/components', under: 'controllers', to: 'components'
 
 
 pin "dayjs", to: "https://ga.jspm.io/npm:dayjs@1.11.8/dayjs.min.js"
+pin "dayjs/plugin/objectSupport", to: "https://ga.jspm.io/npm:dayjs@1.11.8/plugin/objectSupport.js"
