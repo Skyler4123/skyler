@@ -5,5 +5,6 @@ class Table::TableComponent < ViewComponent::Base
     @collection = collection
     @headers = headers
     @edit = edit
+    @klass = collection.first.class
   end
 end

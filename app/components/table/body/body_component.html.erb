@@ -12,7 +12,8 @@
         <td
           class=""
           data-table--table-component-target='cell'
-          data-type='<%= attribute.to_s %>' 
+          data-field='<%= attribute.to_s %>'
+          data-type='<%= @klass.type_for_attribute(attribute).type %>'
         >
           <div><%= object.send('try', attribute) %></div>
         </td>

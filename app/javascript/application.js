@@ -4,4 +4,5 @@ import "controllers"
 
 
 import dayjs from 'dayjs'
-import ObjectSupport from 'dayjs/plugin/objectSupport'
+import Duration from 'dayjs/plugin/duration'
+import RelativeTime from 'dayjs/plugin/relativeTime'
