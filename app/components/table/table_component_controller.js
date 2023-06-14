@@ -44,6 +44,23 @@ export default class extends Controller {
     this.editTargets.forEach((edit) => {
       edit.replaceChild(this.editSvg1(), edit.firstElementChild)
     })
+    this.element.querySelectorAll('td[data-field="role"').forEach((role) => {
+      console.log(role.firstElementChild.innerHTML)
+      switch (role.firstElementChild.innerHTML) {
+        case "0":
+          role.firstElementChild.innerHTML = 'Normal';
+          break;
+        case "1":
+          role.firstElementChild.innerHTML = 'Singer';
+          break;
+        case "2":
+          role.firstElementChild.innerHTML = 'Author';
+          break;
+        case "3":
+          role.firstElementChild.innerHTML = 'Actor';
+          break;
+      }
+    })
   }
 
   editSvg1() {
