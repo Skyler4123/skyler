@@ -1,8 +1,8 @@
 FROM ruby:3.2.2
 RUN apt-get update -qq && apt-get install -y nodejs
-WORKDIR /skyler
-COPY Gemfile /skyler/Gemfile
-COPY Gemfile.lock /skyler/Gemfile.lock
+WORKDIR /web
+COPY Gemfile /web/Gemfile
+COPY Gemfile.lock /web/Gemfile.lock
 RUN bundle install
 
 # Add logic to handle every time container starts
