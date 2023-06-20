@@ -29,7 +29,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data
+      - db:/var/lib/postgresql/data
     # timescaledb:
     #   container_name: timescaledb
     #   image: timescale/timescaledb:latest-pg15
@@ -55,14 +55,14 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - ./mongo-data:/var/lib/mongodb/data
+      - db:/var/lib/mongodb/data
   redis:
     image: redis
     # restart: always
     ports:
       - 6379:6379
-    # volumes:
-    #   - cache:/data
+    volumes:
+      - cache:/data
     # zookeeper:
     #   image: wurstmeister/zookeeper
     #   container_name: zookeeper
@@ -76,8 +76,8 @@ services:
     #   environment:
     #     KAFKA_ADVERTISED_HOST_NAME: localhost
     #     KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-    # volumes:
-    #   cache:
-    #     driver: local
-    #   db:
-    #     driver: local
+volumes:
+  cache:
+    driver: local
+  db:
+    driver: local
