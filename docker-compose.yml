@@ -1,7 +1,6 @@
 version: "3.8"
 services:
   # web:
-  #   container_name: rails
   #   build: .
   #   command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
   #   volumes:
@@ -12,19 +11,25 @@ services:
   #     - postgres
   #     - mongodb
   #     - redis
+  # backgroundjob:
+  #   build: .
+  #   command: bash -c "rm -f tmp/pids/server.pid && bundle exec sidekiq"
+  #   volumes:
+  #     - .:/skyler
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - postgres
+  #     - mongodb
+  #     - redis
   postgres:
-    container_name: skyler_postgres
     image: postgres
-    user: postgres
-    # restart: always
     environment:
-      POSTGRES_DB: skyler_development
-      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
     ports:
       - "5432:5432"
-    # volumes:
-    #   - db:/var/lib/postgresql/data
+    volumes:
+      - db:/var/lib/postgresql/data
     # timescaledb:
     #   container_name: timescaledb
     #   image: timescale/timescaledb:latest-pg15
@@ -45,14 +50,12 @@ services:
     #     - "9200:9200"
     #   volumes:
     #     - db:/var/lib/elasticsearch/data
-    # mongodb:
-    #   container_name: mongodb
-    #   image: mongo
-    #   restart: always
-    #   ports:
-    #     - 27017:27017
-    #   volumes:
-    #     - db:/var/lib/mongodb/data
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - db:/var/lib/mongodb/data
   redis:
     container_name: skyler_redis
     image: redis

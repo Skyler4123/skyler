@@ -3,6 +3,10 @@
   data-table--table-component-target='header'
 >
 	<tr>
+		<% if @checkbox %>
+			<th scope="col" class="px-6 py-3">
+			</th>
+		<% end %>
 		<% @headers.each do |attribute, name| %>
 			<th scope="col" class="px-6 py-3">
 				<%= name %>

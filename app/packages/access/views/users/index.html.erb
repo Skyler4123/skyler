@@ -1,6 +1,9 @@
 
 <div class='p-4 w-full'>
-  <%= render(Table::TableComponent.new(collection: @users, edit: true, headers: {email: 'Email', name: 'Name', phone: 'Phone', role: 'Position', birthday: 'Birthday', age: 'Age'}))%>
+  <%= render(Table::TableComponent.new)do %>
+    <%= render(Table::Head::HeadComponent.new(headers: {email: 'Email', name: 'Name', phone: 'Phone', role: 'Position', birthday: 'Birthday', age: 'Age'}, edit: true, checkbox: true)) %>
+    <%= render(Table::Body::BodyComponent.new(collection: @users, headers: {email: 'Email', name: 'Name', phone: 'Phone', role: 'Position', birthday: 'Birthday', age: 'Age'}, edit: true, checkbox: true)) %>
+  <% end %>
 </div>
 
 

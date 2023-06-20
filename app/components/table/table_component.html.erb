@@ -5,7 +5,6 @@
     data-table--table-component-target='table'
     data-table--table-component-edit-value="<%= @edit %>"
   >
-    <%= render(Table::Head::HeadComponent.new(headers: @headers, edit: @edit)) %>
-    <%= render(Table::Body::BodyComponent.new(collection: @collection, headers: @headers, edit: @edit, klass: @klass)) %>
+    <%= content %>
   </table>
 </div>

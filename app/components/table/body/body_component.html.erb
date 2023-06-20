@@ -8,6 +8,14 @@
       data-table--table-component-target='row'
       data-id="<%= object.id %>"
     >
+      <% if @checkbox %>
+        <td
+          scope="col" class=""
+          data-table--table-component-target='checkbox'  
+        >
+          <div></div>
+        </td>
+		  <% end %>
       <% @headers.each do |attribute, name| %>
         <td
           class=""

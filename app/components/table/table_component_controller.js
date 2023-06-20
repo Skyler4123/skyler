@@ -3,9 +3,10 @@ import dayjs from 'dayjs';
 import Duration from 'dayjs/plugin/duration';
 import RelativeTime from 'dayjs/plugin/relativeTime';
 export default class extends Controller {
-  static targets = ['table', 'header', 'body', 'row', 'edit']
+  static targets = ['table', 'header', 'body', 'row', 'edit', 'checkbox']
   static values = {
     edit: Boolean,
+    checkbox: Boolean,
   }
 
   initialize() {
@@ -44,6 +45,9 @@ export default class extends Controller {
     this.editTargets.forEach((edit) => {
       edit.replaceChild(this.editSvg1(), edit.firstElementChild)
     })
+    this.checkboxTargets.forEach((checkbox) => {
+      checkbox.replaceChild(this.checkbox(), checkbox.firstElementChild)
+    })
     this.element.querySelectorAll('td[data-field="role"').forEach((role) => {
       console.log(role.firstElementChild.innerHTML)
       switch (role.firstElementChild.innerHTML) {
@@ -77,5 +81,10 @@ export default class extends Controller {
     const svg = "<svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6 text-green-500'><path stroke-linecap='round' stroke-linejoin='round' d='M4.5 12.75l6 6 9-13.5'/></svg>"
     const editSvg = document.createRange().createContextualFragment(svg)
     return editSvg
+  }
+  checkbox() {
+    const html = "<input type='checkbox'>"
+    const checkboxElement = document.createRange().createContextualFragment(html)
+    return checkboxElement
   }
 }

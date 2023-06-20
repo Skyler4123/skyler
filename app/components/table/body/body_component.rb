@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class Table::Body::BodyComponent < ViewComponent::Base
-  def initialize(collection:, headers:, edit: false, klass: nil)
+  def initialize(collection:, headers:, edit: false, checkbox: false)
     @collection = collection
     @headers = headers
     @edit = edit
-    @klass = klass
+    @checkbox = checkbox
+    @klass = collection.first.class
   end
 end
