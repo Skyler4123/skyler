@@ -8,7 +8,7 @@
 
 100.times do
   User.create!(
-    email: Faker::Internet.email,
+    email: Faker::Internet.email.gsub('@', Time.now.to_i.to_s + '@'),
     password: 'password',
     password_confirmation: 'password',
     uid: Faker::Code.imei,

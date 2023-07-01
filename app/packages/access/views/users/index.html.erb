@@ -1,9 +1,14 @@
-
-<div class='p-4 w-full'>
-  <%= render(Table::TableComponent.new)do %>
-    <%= render(Table::Head::HeadComponent.new(headers: {email: 'Email', name: 'Name', phone: 'Phone', role: 'Position', birthday: 'Birthday', age: 'Age'}, edit: true, checkbox: true)) %>
-    <%= render(Table::Body::BodyComponent.new(collection: @users, headers: {email: 'Email', name: 'Name', phone: 'Phone', role: 'Position', birthday: 'Birthday', age: 'Age'}, edit: true, checkbox: true)) %>
+<%= render(Table::TableComponent.new) do %>
+  <%= render(Table::HeaderComponent.new) do %>
+    <%= render(Table::HeadComponent.new(head_name: 'Email')) %>
   <% end %>
-</div>
+  <%= render(Table::BodyComponent.new) do %>
+    <% @users.each do |user| %>
+      <%= render(Table::RowComponent.new(id: user.id)) do %>
+        <%= render(Table::CellComponent.new(cell_value: user.email)) %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
 
 

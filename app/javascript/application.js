@@ -3,6 +3,7 @@ import "@hotwired/turbo-rails"
 import "controllers"
 
 
-import dayjs from 'dayjs'
-import Duration from 'dayjs/plugin/duration'
-import RelativeTime from 'dayjs/plugin/relativeTime'
+// import dayjs from 'dayjs'
+// import Duration from 'dayjs/plugin/duration'
+// import RelativeTime from 'dayjs/plugin/relativeTime'
+// import Flatpickr from 'flatpickr'

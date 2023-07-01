@@ -17,3 +17,6 @@ pin "dayjs/plugin/timezone", to: "https://ga.jspm.io/npm:dayjs@1.11.8/plugin/tim
 pin "flatpickr", to: "https://ga.jspm.io/npm:flatpickr@4.6.13/dist/esm/index.js"
 pin "@editorjs/editorjs", to: "https://ga.jspm.io/npm:@editorjs/editorjs@2.27.0/dist/editorjs.mjs"
 pin "lodash", to: "https://ga.jspm.io/npm:lodash@4.17.21/lodash.js"
+pin "three", to: "https://ga.jspm.io/npm:three@0.153.0/build/three.module.js"
+pin "cleave.js", to: "https://ga.jspm.io/npm:cleave.js@1.6.0/dist/cleave.js"
+pin "chart.js", to: "https://ga.jspm.io/npm:chart.js@4.3.0/dist/chart.js"
